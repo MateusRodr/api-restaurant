@@ -1,16 +1,12 @@
 # Node
-node_modules/
+node_modules
 dist/
 build/
 
 # Env
 .env
 .env.*
-
-# Prisma
 /src/generated/
+/src/prisma/migrations/
 
-# Logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+
