@@ -6,7 +6,8 @@ build/
 # Env
 .env
 .env.*
-/src/generated/
-/src/prisma/migrations/
+/src/generated/client/
+src/prisma/migrations/
+
 
 

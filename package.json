@@ -11,6 +11,10 @@
   },
   "dependencies": {
     "@prisma/client": "^6.17.1",
+    "@types/crypto-js": "^4.2.2",
     "prisma": "^6.17.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.9.0"
   }
 }
