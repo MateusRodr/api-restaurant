@@ -1,17 +1,18 @@
+import { v4 as uuidv4 } from "uuid";
+
 export interface ProductProps {
   name: string;
   description?: string | null;
-  price: number;
-  categoryId: string;
+  category: string;
 }
 
 export class Product {
   private props: ProductProps;
-  public readonly id: number;
+  public readonly id: string;
 
-  constructor(props: ProductProps, id?: number) {
+  constructor(props: ProductProps, id?: string) {
     this.props = props;
-    this.id = id ?? 0;
+    this.id = id ?? uuidv4();
   }
 
   get name() {
@@ -22,12 +23,8 @@ export class Product {
     return this.props.description;
   }
 
-  get price() {
-    return this.props.price;
-  }
-
-  get categoryId() {
-    return this.props.categoryId;
+  get category() {
+    return this.props.category;
   }
 
   set name(name: string) {
@@ -38,12 +35,8 @@ export class Product {
     this.props.description = description;
   }
 
-  set price(price: number) {
-    this.props.price = price;
-  }
-
-  set categoryId(categoryId: string) {
-    this.props.categoryId = categoryId;
+  set category(category: string) {
+    this.props.category = category;
   }
 
   toJSON() {
@@ -51,8 +44,7 @@ export class Product {
       id: this.id,
       name: this.name,
       description: this.description,
-      price: this.price,
-      categoryId: this.categoryId,
+      category: this.category,
     };
   }
 }
