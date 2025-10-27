@@ -1,6 +1,6 @@
 import { container } from "tsyringe";
 import {  RequestHandler } from "express"
-import { ProductService } from "../services/category.service";
+import { ProductService } from "../services/product.service";
 import z from "zod"
 
 const productService = container.resolve(ProductService)

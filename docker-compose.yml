@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  api:
+    build: .
+    container_name: api_restaurant
+    ports:
+      - "3020:3010"
+    env_file:
+      - .env
+    volumes:
+      - ./src:/app/src
+      - ./package.json:/app/package.json
+      - ./tsconfig.json:/app/tsconfig.json
+      - ./.env:/app/.env
+
+    command: npm run dev
