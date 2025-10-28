@@ -7,7 +7,8 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "test": "jest --passWithNoTests",
+    "pretest": "cross-env DATABASE_URL=postgresql://postgres:password@localhost:5432/TestRestaurant prisma db push --schema=./prisma/schema.prisma",
+    "test": "cross-env NODE_ENV=test dotenv -e .env.test jest --passWithNoTests",
     "start": "node dist/server.js",
     "build": "tsc",
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts"
@@ -15,8 +16,11 @@
   "dependencies": {
     "@prisma/client": "^6.18.0",
     "@types/crypto-js": "^4.2.2",
+    "@types/swagger-jsdoc": "^6.0.4",
+    "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "reflect-metadata": "^0.2.2",
+    "swagger-ui-express": "^5.0.1",
     "tsyringe": "^4.10.0",
     "uuid": "^8.3.2",
     "zod": "^4.1.12"
@@ -25,7 +29,10 @@
     "@types/express": "^5.0.3",
     "@types/jest": "^30.0.0",
     "@types/node": "^24.9.1",
+    "@types/swagger-ui-express": "^4.1.8",
     "@types/uuid": "^10.0.0",
+    "cross-env": "^10.1.0",
+    "dotenv-cli": "^10.0.0",
     "jest": "^30.2.0",
     "prisma": "^6.18.0",
     "ts-jest": "^29.4.5",

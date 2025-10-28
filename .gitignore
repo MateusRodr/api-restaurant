@@ -11,3 +11,5 @@ src/prisma/migrations/
 
 
 
+
+/src/generated/prisma

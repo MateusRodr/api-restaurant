@@ -7,6 +7,16 @@ const prisma = new PrismaClient()
 const repository = new ProductRepository(prisma)
 const service = new ProductService(repository)
 
+beforeAll(async () => {
+  await prisma.$connect()
+  await prisma.product.deleteMany()
+})
+
+afterAll(async () => {
+  await prisma.$disconnect()
+})
+
+
 describe('ProductService Unit Tests', () => {
 
   let createdProductId: string
